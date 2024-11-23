@@ -15,7 +15,7 @@ function App() {
     const [loading, setLoading] = useState(false); // Loading state
     const [error, setError] = useState(null); // Error state
 
-    const BASE_URL = 'http://localhost:8000/api/'; // Base API URL
+    const BASE_URL = 'http://localhost:8000/api/pricelist/'; // Base API URL
 
     // Fetch categories, series, models, and prices on mount
     useEffect(() => {

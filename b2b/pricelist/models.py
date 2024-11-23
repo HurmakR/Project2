@@ -71,6 +71,8 @@ class RepairPrice(models.Model):
                                              blank=True, null=True)
     dealer_exchange_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Exchange Dealer Price",
                                                 blank=True, null=True)
+    service_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Service only price",
+                                                blank=True, null=True)
     description = models.CharField(blank=True, null=True, max_length=200)
     picture = models.TextField(blank=True, null=True)
 
