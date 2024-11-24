@@ -87,7 +87,7 @@ class RepairPrice(models.Model):
         elif self.category:
             return f"{self.repair_type.name} for {self.category.name} category"
         else:
-            return self.repair_type.name
+            return  self.repair_type.name
 
 @receiver(post_save, sender=RepairPrice)
 def propagate_price_to_models(sender, instance, **kwargs):

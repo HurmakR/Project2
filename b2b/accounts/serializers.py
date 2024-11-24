@@ -2,6 +2,9 @@ from rest_framework import serializers
 from .models import User
 
 class RegisterSerializer(serializers.ModelSerializer):
+    """
+    Serializer for user registration.
+    """
     password = serializers.CharField(write_only=True)
 
     class Meta:
@@ -9,10 +12,18 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ['username', 'email', 'password']
 
     def create(self, validated_data):
-        user = User.objects.create_user(
+        return User.objects.create_user(
             username=validated_data['username'],
             email=validated_data['email'],
             password=validated_data['password'],
-            role='end_user'  # Role by the default
+            role='end_user'  # Default role for new users
         )
-        return user
+
+
+class UserSerializer(serializers.ModelSerializer):
+    """
+    Serializer for returning user details.
+    """
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email', 'role', 'company']
